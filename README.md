@@ -1,6 +1,14 @@
 # zcash
 zcash library for Node
 
+```
+npm install zcash --save
+```
+
+## Features
+
+* A fast, concise codebase, with zero dependencies.
+
 ``` javascript
 const zcash = require("zcash");
 
