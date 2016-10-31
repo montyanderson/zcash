@@ -1,6 +1,6 @@
 {
   "name": "zcash",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "zcash library for Node",
   "main": "index.js",
   "scripts": {
