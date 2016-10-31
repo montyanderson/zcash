@@ -11,6 +11,8 @@ class zcash {
 	}
 };
 
+/* https://github.com/zcash/zcash/blob/master/doc/payment-api.md */
+
 [
 	"z_getbalance",
 	"z_gettotalbalance",
