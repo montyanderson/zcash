@@ -1,5 +1,6 @@
 # zcash
-zcash library for Node
+
+Minimal [Zcash](https://z.cash/) library for Node.js
 
 ```
 npm install zcash --save
@@ -8,11 +9,12 @@ npm install zcash --save
 ## Features
 
 * A fast, concise codebase, with zero dependencies.
+* Supports all commands listed in the [zcash Payment API](https://github.com/zcash/zcash/blob/master/doc/payment-api.md).
 
 ``` javascript
-const zcash = require("zcash");
+const Zash = require("zcash");
 
-const rpc = new zcash({
+const rpc = new Zcash({
 	username: "__username__",
 	password: "__password__"
 });
@@ -22,6 +24,6 @@ rpc.z_listaddresses().then(addresses => {
 });
 ```
 
-```
+``` javascript
 [ 'zcW36oxxUKViWZsFUb6SUDLr61b3N6EaY9oRt8zPYhxFAUGRwUNCLuGFfd2yxYrDgM5ouLkTDHMRdGNgVqJgriHncbjRedN' ]
 ```
