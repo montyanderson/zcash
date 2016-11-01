@@ -1,6 +1,6 @@
 const http = require("http");
 
-class zcash {
+class Zcash {
 	constructor(conf) {
 		if(conf.username && conf.password) {
 			this.auth = "Basic " + Buffer.from(conf.username + ":" + conf.password).toString("base64");
@@ -11,7 +11,7 @@ class zcash {
 	}
 };
 
-/* https://github.com/zcash/zcash/blob/master/doc/payment-api.md */
+/* https://github.com/Zcash/Zcash/blob/master/doc/payment-api.md */
 
 [
 	"z_getbalance",
@@ -28,7 +28,7 @@ class zcash {
 	"z_listreceivedbyaddress",
 	"z_sendmany"
 ].forEach(method => {
-	zcash.prototype[method] = function() {
+	Zcash.prototype[method] = function() {
 		return new Promise((resolve, reject) => {
 			const params = [...arguments];
 
@@ -72,7 +72,7 @@ class zcash {
 			req.write(postData);
 			req.end();
 		});
-	}
+	};
 });
 
-module.exports = zcash;
+module.exports = Zcash;
