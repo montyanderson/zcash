@@ -12,7 +12,7 @@ npm install zcash --save
 * Supports all commands listed in the [zcash Payment API](https://github.com/zcash/zcash/blob/master/doc/payment-api.md).
 
 ``` javascript
-const Zash = require("zcash");
+const Zcash = require("zcash");
 
 const rpc = new Zcash({
 	username: "__username__",
