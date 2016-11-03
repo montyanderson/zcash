@@ -14,6 +14,7 @@ class Zcash {
 /* https://github.com/Zcash/Zcash/blob/master/doc/payment-api.md */
 
 [
+	"getnewaddress",
 	"z_getbalance",
 	"z_gettotalbalance",
 	"z_getnewaddress",
