@@ -58,7 +58,13 @@ class Zcash {
 				res.on("data", chunk => data += chunk);
 
 				res.on("end", () => {
-					const response = JSON.parse(data);
+					let response;
+
+					try {
+						response = JSON.parse(data);
+					} catch(error) {
+						return reject(error);
+					}
 
 					if(response.error) {
 						return reject(new Error(response.error));
