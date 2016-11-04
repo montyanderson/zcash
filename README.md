@@ -1,6 +1,6 @@
 # zcash
 
-Minimal [Zcash](https://z.cash/) library for Node.js
+:dollar: Minimal [Zcash](https://z.cash/) library for Node.js
 
 ```
 npm install zcash --save
