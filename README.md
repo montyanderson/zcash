@@ -11,6 +11,57 @@ npm install zcash --save
 * A fast, concise codebase, with zero dependencies.
 * Supports all commands listed in the [zcash Payment API](https://github.com/zcash/zcash/blob/master/doc/payment-api.md).
 
+## To Do
+
+* Write a full test suite.
+
+## API
+
+### Zcash.auto()
+
+Returns a new `Zcash` instance, after reading the username and password from `HOME/.zcash/zcash.conf`. You can then use all the RPC commands as normal.
+
+### new Zcash(options)
+
+Returns a new `Zcash` instances, with the specified options.
+
+#### options
+
+Type: `object`
+
+###### username
+
+The RPC username.
+
+Type: `string`
+
+###### password
+
+The RPC password.
+
+Type: `string`
+
+###### host
+
+The RPC host.
+
+Type: `string`
+
+###### port
+
+The RPC port.
+
+Type: `number`
+
+
+``` javascript
+const rpc = Zcash.auto();
+
+rpc.z_listaddresses().then(addresses => {
+	console.log(addresses);
+});
+```
+
 ``` javascript
 const Zcash = require("zcash");
 

@@ -1,3 +1,5 @@
+const os = require("os");
+const fs = require("fs");
 const http = require("http");
 
 class Zcash {
@@ -9,12 +11,34 @@ class Zcash {
 		this.host = conf.host || "localhost";
 		this.port = conf.port || 8232;
 	}
+
+	static auto() {
+		const lines = fs.readFileSync(os.homedir() + "/.zcash/zcash.conf", "utf8")
+			.split("\n");
+
+		lines.pop();
+
+		const config = {};
+
+		lines.forEach(line => {
+			const split = line.split("=");
+			const key = split.shift();
+			const value = split.join("=");
+			config[key] = value;
+		});
+
+		return new Zcash({
+			username: config.rpcuser,
+			password: config.rpcpassword
+		});
+	}
 };
 
 /* https://github.com/Zcash/Zcash/blob/master/doc/payment-api.md */
 
 [
 	"getnewaddress",
+	"getbalance",
 	"z_getbalance",
 	"z_gettotalbalance",
 	"z_getnewaddress",
