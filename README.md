@@ -21,6 +21,14 @@ npm install zcash --save
 
 Returns a new `Zcash` instance, after reading the username and password from `HOME/.zcash/zcash.conf`. You can then use all the RPC commands as normal.
 
+``` javascript
+const rpc = Zcash.auto();
+
+rpc.z_listaddresses().then(addresses => {
+	console.log(addresses);
+});
+```
+
 ### new Zcash(options)
 
 Returns a new `Zcash` instances, with the specified options.
@@ -52,15 +60,6 @@ Type: `string`
 The RPC port.
 
 Type: `number`
-
-
-``` javascript
-const rpc = Zcash.auto();
-
-rpc.z_listaddresses().then(addresses => {
-	console.log(addresses);
-});
-```
 
 ``` javascript
 const Zcash = require("zcash");
