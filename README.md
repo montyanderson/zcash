@@ -10,10 +10,11 @@ npm install zcash --save
 
 * A fast, concise codebase, with zero dependencies.
 * Supports all commands listed in the [zcash Payment API](https://github.com/zcash/zcash/blob/master/doc/payment-api.md).
+* Test suite!
 
 ## To Do
 
-* Write a full test suite.
+* Write a more full test suite.
 
 ## API
 
