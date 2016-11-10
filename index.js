@@ -46,10 +46,13 @@ class Zcash {
 				headers: {
 					"Accept": "application/json",
 					"Content-Type": "application/json",
-					"Content-Length": Buffer.byteLength(postData),
-					"Authorization": this.auth
+					"Content-Length": Buffer.byteLength(postData)
 				}
 			};
+
+			if(this.auth) {
+				options.headers.Authorization = this.auth;
+			}
 
 			const req = http.request(options, (res) => {
 				let data = "";
