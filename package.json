@@ -4,7 +4,7 @@
   "description": "zcash library for Node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava test/*.js --verbose"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/montyanderson/zcash/issues"
   },
-  "homepage": "https://github.com/montyanderson/zcash#readme"
+  "homepage": "https://github.com/montyanderson/zcash#readme",
+  "devDependencies": {
+    "ava": "^0.16.0"
+  }
 }
