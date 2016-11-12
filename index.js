@@ -2,6 +2,8 @@ const os = require("os");
 const fs = require("fs");
 const http = require("http");
 
+const methods = require("./methods");
+
 class Zcash {
 	constructor(conf) {
 		if(conf.username && conf.password) {
@@ -34,25 +36,7 @@ class Zcash {
 	}
 };
 
-/* https://github.com/Zcash/Zcash/blob/master/doc/payment-api.md */
-
-[
-	"getnewaddress",
-	"getbalance",
-	"z_getbalance",
-	"z_gettotalbalance",
-	"z_getnewaddress",
-	"z_listaddresses",
-	"z_exportkey",
-	"z_importkey",
-	"z_exportwallet",
-	"z_importwallet",
-	"z_getoperationresult",
-	"z_getoperationstatus",
-	"z_listoperationids",
-	"z_listreceivedbyaddress",
-	"z_sendmany"
-].forEach(method => {
+methods.forEach(method => {
 	Zcash.prototype[method] = function() {
 		return new Promise((resolve, reject) => {
 			const params = [...arguments];

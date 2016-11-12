@@ -1,0 +1,18 @@
+[
+	"getnewaddress",
+	"getbalance",
+	"getaddressesbyaccount",
+	"z_getbalance",
+	"z_gettotalbalance",
+	"z_getnewaddress",
+	"z_listaddresses",
+	"z_exportkey",
+	"z_importkey",
+	"z_exportwallet",
+	"z_importwallet",
+	"z_getoperationresult",
+	"z_getoperationstatus",
+	"z_listoperationids",
+	"z_listreceivedbyaddress",
+	"z_sendmany"
+]
