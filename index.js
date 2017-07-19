@@ -48,7 +48,7 @@ methods.forEach(method => {
 			});
 
 			const options = {
-				hostname: this.hostname,
+				hostname: this.host,
 				port: this.port,
 				method: "POST",
 				headers: {
