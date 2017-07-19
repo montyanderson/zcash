@@ -2,6 +2,8 @@
 
 :dollar: Minimal [Zcash](https://z.cash/) library for Node.js
 
+> Note: This library has been succeeded by the isomorphic library [stdrpc](https://github.com/montyanderson/stdrpc).
+
 ```
 npm install zcash --save
 ```
