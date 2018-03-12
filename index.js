@@ -6,28 +6,36 @@ const methods = require("./methods");
 
 class Zcash {
 	constructor(conf) {
-		if(conf.username && conf.password) {
+		if(typeof conf.username === "string" && typeof conf.password === "string") {
 			this.auth = "Basic " + Buffer.from(conf.username + ":" + conf.password).toString("base64");
 		}
 
-		this.host = conf.host || "localhost";
-		this.port = conf.port || 8232;
+		this.host = typeof conf.host === "string" ? conf.host : "localhost";
+		this.port = typeof conf.port === "number" ? conf.port : 8232;
 	}
 
 	static auto() {
-		const lines = fs.readFileSync(os.homedir() + "/.zcash/zcash.conf", "utf8")
-			.split("\n");
+		let lines;
 
-		lines.pop();
+		try {
+			lines =
+				fs.readFileSync(os.homedir() + "/.zcash/zcash.conf", "utf8")
+				.split("\n")
+				.filter(l => l.indexOf("=") > 0);
+		} catch(error) {
+			throw new Error("Unable to read Zcash config file");
+		}
 
 		const config = {};
 
-		lines.forEach(line => {
-			const split = line.split("=");
-			const key = split.shift();
-			const value = split.join("=");
-			config[key] = value;
-		});
+		for(let line of lines) {
+			const [ key, ...value ] = line.split("=");
+			config[key] = value.join("=");
+		}
+
+		if(typeof config.rpcuser !== "string" || typeof config.rpcpassword !== "string") {
+			throw new Error("Unable to find 'rpcuser' and 'rpcpassword' in Zcash config file");
+		}
 
 		return new Zcash({
 			username: config.rpcuser,
@@ -58,9 +66,8 @@ methods.forEach(method => {
 				}
 			};
 
-			if(this.auth) {
+			if(this.auth)
 				options.headers.Authorization = this.auth;
-			}
 
 			const req = http.request(options, (res) => {
 				let data = "";
