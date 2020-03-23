@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/montyanderson/zcash#readme",
   "devDependencies": {
-    "ava": "^1.0.1"
+    "ava": "^3.5.1"
   },
   "dependencies": {
     "stdrpc": "^1.0.0"
